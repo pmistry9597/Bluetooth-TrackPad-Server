@@ -9,4 +9,12 @@ that calls this file and running that file as Administrator.
 
 If connection fails, you need to restart the script to start listening for connections again.
 
-I may scrolling and button clicks through the actual trackpad in the app.
+I may add scrolling and button clicks through the actual trackpad in the app. I might make a GUI version using C++ to make it 
+more user-friendly and snappier.
+
+Example batch script to run the Bluetooth Server with administrator permissions (you'll have to tweak it to your environment):
+
+@echo off
+cd [YOUR DIRECTORY WITH THE SCRIPT]
+C:\Python35\python.exe trackPadServer.py
+
