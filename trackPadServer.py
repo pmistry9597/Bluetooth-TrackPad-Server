@@ -98,8 +98,9 @@ def runServer():
                        service_classes = [ uuid, bluetooth.SERIAL_PORT_CLASS ],
                        profiles = [ bluetooth.SERIAL_PORT_PROFILE ])
 
-while (True): # keep listening for connections so script
-    # doesn't have to restart
+    while (True): # keep listening for connections so script
+        global client
+        # doesn't have to restart
         try:
             print("Started listening on BT socket...\n")
             # accept incoming connection
@@ -128,7 +129,7 @@ while (True): # keep listening for connections so script
         except:
             print("connection failure\n")
             print('\n')
-            
-        # close client connection
-        client.close()
+                
+            # close client connection
+            client.close()
 
