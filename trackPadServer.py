@@ -87,7 +87,6 @@ def runServer():
     bindData = (macBAAddress, port)
     socket.bind(bindData)
     socket.listen(maxBackLog)
-    print("Started listening on BT socket...\n")
     # socket should be listening on this point
 
     uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
@@ -99,35 +98,37 @@ def runServer():
                        service_classes = [ uuid, bluetooth.SERIAL_PORT_CLASS ],
                        profiles = [ bluetooth.SERIAL_PORT_PROFILE ])
 
-    try:
-        # accept incoming connection
-        client, info = socket.accept()
-        print("Accepted connection\n")
-        # keeps track of iterations
-        i = 0
-        # string to store data
-        s = ""
-        # keeps track of count for the loop below
-        while 1:
-            data = client.recv(size)
-            # decode the data into strings to add to string of message
-            data = data.decode("utf-8")
-            # and terminate this current accumulation if null char ('\0') is encountered or string is too long
-            if (data == '\0' or i >= 14):
-                print(s)
-                i = 0 # reset accumulator
-                # interpret the message
-                msgHandle(s)
-                s = "" # reset variable that stores string
-            else:
-                s += data
-            # accumulate
-            i += 1
-    except:
-        print("connection failure\n")
-        print('\n')
-        
-    # close sockets
-    client.close()
-    socket.close()
+while (True): # keep listening for connections so script
+    # doesn't have to restart
+        try:
+            print("Started listening on BT socket...\n")
+            # accept incoming connection
+            client, info = socket.accept()
+            print("Accepted connection\n")
+            # keeps track of iterations
+            i = 0
+            # string to store data
+            s = ""
+            # keeps track of count for the loop below
+            while 1:
+                data = client.recv(size)
+                # decode the data into strings to add to string of message
+                data = data.decode("utf-8")
+                # and terminate this current accumulation if null char ('\0') is encountered or string is too long
+                if (data == '\0' or i >= 14):
+                    print(s)
+                    i = 0 # reset accumulator
+                    # interpret the message
+                    msgHandle(s)
+                    s = "" # reset variable that stores string
+                else:
+                    s += data
+                # accumulate
+                i += 1
+        except:
+            print("connection failure\n")
+            print('\n')
+            
+        # close client connection
+        client.close()
 
