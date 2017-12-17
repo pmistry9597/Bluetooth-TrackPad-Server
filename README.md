@@ -5,7 +5,7 @@ a new client can connect afterwards without script restart.
 The only commands it can send is cursor movement and mouse button clicks.
 
 It requires the PyBluez and PyAutoGUI modules. It also requires admin permissions. I overcame this by making a batch script
-that calls this file and running that file as Administrator.
+that calls this file and running that file as Administrator (right click on the batch it and click run as administrator).
 
 If connection fails, you need to restart the script to start listening for connections again.
 
