@@ -1,6 +1,10 @@
 import bluetooth # for bluetooth comm
 import pyautogui # for sending input commands to os
 
+#SCALE FACTOR FOR MOUSE MOVEMENTS
+#change accordingly
+SCALE_FACTOR = 2
+
 # initial setup runs here
 def initSetup():
     # set pyautogui pause to 0
@@ -13,8 +17,8 @@ def moveCursor(cordsStr):
     # XXXXYYYY
     # we'll seperate the X parts and Y parts
     # where the x parts are [0:4] and y parts are [4:]
-    xCord = int(cordsStr[0:4])
-    yCord = int(cordsStr[4:])
+    xCord = int(cordsStr[0:4]) * SCALE_FACTOR
+    yCord = int(cordsStr[4:]) * SCALE_FACTOR
     # NOTE THAT X AND Y CORD ARE CHANGES IN POSITION, NOT ABSOLUTE POSITION
     # for debugging only - print out the spliced result
     print ("Result of splice:\n")
@@ -133,3 +137,4 @@ def runServer():
             # close client connection
             client.close()
 
+runServer()
