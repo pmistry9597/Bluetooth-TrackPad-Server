@@ -1,4 +1,4 @@
-#Bluetooth TrackPad Server
+# Bluetooth TrackPad Server
 This is a Python script that allows for an Android device to control a pc that has the Bluetooth TrackPad App installed.
 You can find that app on my GitHub and it's called Bluetooth-TrackPad-App. It listens for connections on and keeps listening so
 a new client can connect afterwards without script restart.
