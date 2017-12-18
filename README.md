@@ -13,9 +13,9 @@ I may add scrolling and button clicks through the actual trackpad in the app. I 
 more user-friendly and snappier.
 
 Example batch script to run the Bluetooth Server with administrator permissions (you'll have to tweak it to your environment):
-<div style="white-space: pre-line">
-@echo off
+<span style="white-space: pre-line">
+@echo off <br />
 cd [YOUR DIRECTORY WITH THE SCRIPT]
 C:\Python35\python.exe trackPadServer.py
-</div>
+</span>
 
